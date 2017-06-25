@@ -1,0 +1,81 @@
+*{
+	margin:0;
+	padding:0;
+	}
+ul,ol{
+	list-style: none;
+	}
+#list{
+	width:100vw;
+	height:40px;
+}
+#list li{
+	width:25vw;
+	line-height:40px;
+	float:left;
+	text-align: center;
+	border-bottom:2px solid #000000;
+	font-size:16px;
+	color:#4CD964;
+	font-family: '楷体';
+}
+#list li:nth-of-type(1){
+	border-bottom: 2px solid red;
+}
+#list li:hover{
+	border-bottom: 2px solid red;
+}
+#list1{
+	margin-top:2px;
+}
+#list1 li{
+	width:100vw;
+	line-height:30px;
+	font-size:13px;
+}
+#list2{
+	width:100vw;
+	height:40px;
+	color:red;
+	font-size: 16px;
+	font-family: '楷体';
+}
+#list2 li{
+	width:33.3vw;
+	line-height:40px;
+	float:left;
+	text-align: center;
+}
+#list2 li a{
+	color:red;
+}
+#con img{
+	display: block;
+	width:45vw;
+	float:left;
+	margin-left:3.3vw;
+	margin-top:1vh;
+}
+#con2 img{
+	display: block;
+	width:45vw;
+	height:10vh;
+	float:left;
+	margin-left:3.3vw;
+	margin-top:1vh;
+}
+#con1 img:nth-of-type(1){
+	width:93.3vw;
+	height:20vh;
+	margin-left:3.3vw;
+}
+#con1 img{
+	display: block;
+	width:45vw;
+	height:10vh;
+	float:left;
+	margin-left:3.3vw;
+	margin-top:1vh;
+}
+
+

@@ -1,0 +1,78 @@
+*{
+	margin:0;
+	padding:0;
+	}
+.inner{
+	width:100vw;
+	height:100vh;
+	overflow: hidden;
+	}
+.slide1{
+	width:100vw;
+	height:100vh;
+	background:url(../img/wc2.jpg) 0 0 no-repeat;
+	}
+.slide2{
+	width:100vw;
+	height:100vh;
+	background:url(../img/wc2.jpg) 0 0 no-repeat;
+	}
+.wc1{
+	display:block;
+    margin-top:20px;
+    margin-left:30px;
+}
+.p1,.p2{
+	font-size:24px;
+	font-family: '楷体';
+    color:burlywood;
+	}
+.p1{
+	margin-left:10px;
+	margin-top:180px;
+	}
+.p2{
+	margin-left:40px;
+	margin-top:20px;
+	}
+#music{
+	position: fixed;
+	top:10px;
+	right:10px;
+	z-index: 100;
+	font-size: 20px;
+	animation: zhuan 5s linear infinite;
+}
+@-webkit-keyframes zhuan{
+	from{transform: rotate(0deg);}
+	to{transform: rotate(360deg);}
+}
+.wc2{
+	display: block;
+	margin-top:20px;
+	margin-left:60px;
+}
+.wc3,.wc4{
+	display: block;
+	border: 4px solid #DEB887;
+	float:left;
+	margin-top:80px;
+	margin-left:20px;
+}
+.a{
+	text-decoration: none;
+	display:block;
+	width:120px;
+	line-height:50px;
+	font-size:24px;
+	font-family: '楷体';
+	margin-left:100px;
+	color:red;
+	margin-top:240px;
+	background: #DEB887;
+	border-radius: 10px;
+	text-align: center;
+}
+
+
+

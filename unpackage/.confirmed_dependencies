@@ -1,0 +1,36 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"wc.html",
+			"common/zepto-1.1.6.min.js",
+			"css/index.css"
+		],
+		"refer": [
+			"wc.html"
+		]
+	},
+	"wc.html": {
+		"resources": [
+			"common/rem.js",
+			"common/swiper.animate1.0.2.min.js",
+			"common/animate.min.css",
+			"common/swiper-3.3.1.min.css",
+			"img/wc2.jpg",
+			"css/wc.css",
+			"img/wc1.jpg",
+			"common/swiper-3.3.1.jquery.min.js",
+			"common/jquery-1.10.1.min.js",
+			"img/wc5.jpg",
+			"img/wc4.jpg",
+			"海绵宝宝.mp3",
+			"img/wc3.jpg",
+			"index.html"
+		],
+		"refer": [
+			"index.html"
+		]
+	}
+}

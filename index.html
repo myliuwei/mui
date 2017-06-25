@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script src="common/zepto-1.1.6.min.js" type="text/javascript" charset="utf-8"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+   <link rel="stylesheet" type="text/css" href="css/index.css"/>
+</head>
+<body>
+	
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">英雄联盟</h1>
+	</header>
+	
+	<div class="mui-content">
+		
+		<!--上拉  下拉  容器-->
+		<div id="refreshContainer" class="mui-content mui-scroll-wrapper" style="padding-top:44px;">
+                 <div class="mui-scroll">
+                 	
+    <!--数据列表--> 
+    	
+              <!-- 轮播图-->
+	         <div class="mui-slider">
+                    <div class="mui-slider-group mui-slider-loop img-box">
+                       <!--      轮播图内容-->
+                    </div>
+             </div>
+             
+             <ul id="list"></ul>
+             <ul class="mui-table-view" id="list1"></ul>
+             
+             <ul id="list2">
+             	<li><a class="mui-tab-item mui-active" href="#con">周免英雄</a></li>
+             	<li><a class="mui-tab-item" href="#con1">最新皮肤</a></li>
+             	<li><a class="mui-tab-item" href="#con2">最新英雄</a></li>
+             </ul>
+             
+             <div>
+             	 <div class="mui-control-content mui-active" id="con"></div>
+             	 <div class="mui-control-content" id="con1"></div>
+             	 <div class="mui-control-content" id="con2"></div>
+             </div>
+            
+    
+                </div>
+        </div>
+		    
+    </div>
+	
+	
+	<nav class="mui-bar mui-bar-tab">
+	    <a class="mui-tab-item mui-active">
+	        <span class="mui-icon mui-icon-home"></span>
+	        <span class="mui-tab-label">首页</span>
+	    </a>
+	    <a class="mui-tab-item">
+	        <span class="mui-icon mui-icon-phone"></span>
+	        <span class="mui-tab-label">电话</span>
+	    </a>
+	    <a class="mui-tab-item">
+	        <span class="mui-icon mui-icon-email"></span>
+	        <span class="mui-tab-label">邮件</span>
+	    </a>
+	    <a class="mui-tab-item">
+	        <span class="mui-icon mui-icon-gear"></span>
+	        <span class="mui-tab-label">设置</span>
+	    </a>
+	</nav>
+</body> 
+<script type="text/javascript" charset="utf-8">
+//下拉刷新
+ mui.init({
+  pullRefresh : {
+    container:"#refreshContainer",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+    down : {
+      height:50,//可选,默认50.触发下拉刷新拖动距离,
+      auto:false,//可选,默认false.首次加载自动下拉刷新一次
+      contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+      contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+      contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+      callback :function(){
+      	setTimeout(function(){
+    		 mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+      	},2000)
+      }
+    },
+    up : {
+      height:50,//可选.默认50.触发上拉加载拖动距离
+      auto:false,//可选,默认false.自动上拉加载一次
+      contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+      contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+      callback :function(){
+      	setTimeout(function(){
+      		alert('没有更多数据了'),
+      		mui('#refreshContainer').pullRefresh().endPullupToRefresh();
+      	},2000)
+      } 
+    }
+  }
+       });
+       
+      $.ajax({
+				url:'http://127.0.0.1:3000',
+				type:'get',
+				async:true,
+		success:function(data){
+		var data=JSON.parse(data);
+		var  banner=data[0].banner
+		var  list=data[1].list
+		var  list1=data[2].list1
+		var  img1=data[3].img1
+		var  img2=data[4].img2
+		var  img3=data[5].img3
+		console.log(img2)
+		    for(var i = 0; i < data[0].banner.length+2; i++){
+		    	if(i==0){
+		    		$('.img-box').append("<div class='mui-slider-item mui-slider-item-duplicate'><a href='#'><img src='img/"+data[0].banner[data[0].banner.length-1]+".jpg' /></a></div>")
+		    	}else if(i==data[0].banner.length+1){
+		    		$('.img-box').append("<div class='mui-slider-item mui-slider-item-duplicate'><a href='#'><img src='img/"+data[0].banner[0]+".jpg'/></a></div>")
+		    	}else{
+		    		$('.img-box').append("<div class='mui-slider-item'><a href='#'><img src='img/"+data[0].banner[i-1]+".jpg' /></a></div>")
+		    	}
+		    }
+		    
+			var gallery = mui('.mui-slider');
+			    gallery.slider({
+			    interval:3000//自动轮播周期，若为0则不自动播放，默认为0；
+			});
+			
+			for(var i in list){
+				$('#list').append('<li>'+list[i]+'</li>')
+			}
+			
+			for(var i in list1){
+                  $('#list1').append('<li class="mui-table-view-cell"><a class="mui-navigate-right">'+list1[i]+'</a></li>')
+			}
+			
+			for(var i in img1){
+				if(i==9){
+					$('#con').append('<img src=images/'+img1[i]+'.jpg/>')
+				}else{
+					$('#con').append('<img src=images/'+img1[i]+'.gif/>')
+				}
+			}
+			
+			for(var i in img2){
+				$('#con2').append('<img src=images/'+img2[i]+'.jpg/>')
+			}
+			
+			for(var i in img3){
+				$('#con1').append('<img src=images/'+img3[i]+'.jpg/>')
+				}
+			
+			},
+			
+			
+			error:function(){
+				console.log('fail');
+			}
+		})
+    </script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+        <link rel="stylesheet" type="text/css" href="common/swiper-3.3.1.min.css"/>
+		<link rel="stylesheet" type="text/css" href="common/animate.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/wc.css"/>
+		<script src="common/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/swiper-3.3.1.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/swiper.animate1.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/rem.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	
+	<audio src="海绵宝宝.mp3" id="aud"></audio>
+	<div id="music">♫</div>
+	
+<div class="swiper-container inner">
+	
+    <div class="swiper-wrapper out">
+        <div class="swiper-slide slide1">
+        	<img src="img/wc1.jpg" class="wc1 ani" swiper-animate-effect=" shake" swiper-animate-duration="1s" swiper-animate-delay="0.3s"/>
+        	<p class="p1 ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s">时光不老，我们不散</p>
+        	<p class="p2 ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1s" swiper-animate-delay="0.8s">这是结束，亦是新的开始</p>
+        </div>
+        
+        <div class="swiper-slide slide2">
+        	<img src="img/wc3.jpg" class="wc2 ani" swiper-animate-effect=" shake" swiper-animate-duration="1s" swiper-animate-delay="0.3s"/>
+        	<img src="img/wc4.jpg" class="wc3 ani" swiper-animate-effect=" bounceInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s"/>
+        	<img src="img/wc5.jpg" class="wc4 ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1s" swiper-animate-delay="0.8s"/>
+        	<a href="index.html" class="a ani" swiper-animate-effect="bounceInUp" swiper-animate-duration="1s" swiper-animate-delay="1.5s">我们开始吧</a>
+        </div>
+    </div>
+   
+</div>
+
+
+
+
+	 <script type="text/javascript">
+    	$(function(){
+    		document.getElementById('aud').play()
+    	})
+    	
+var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'vertical',
+     onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+    swiperAnimateCache(swiper); //隐藏动画元素 
+    swiperAnimate(swiper); //初始化完成开始动画
+  }, 
+  onSlideChangeEnd: function(swiper){ 
+    swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+  } 
+    
+  })    
+  
+   		
+   		
+    </script>
+	
+</body>
+</html>

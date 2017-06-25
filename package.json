@@ -1,0 +1,19 @@
+{
+  "name": "macc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mongodb": "^2.2.29",
+    "supervisor": "^0.12.0"
+  },
+  "dependencies": {
+    "mongodb": "^2.2.29",
+    "supervisor": "^0.12.0"
+  },
+  "description": ""
+}
